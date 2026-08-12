@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#d9c6b6">
+<meta name="theme-color" content="#191412">
 <title>Destined Skinn</title>
+<meta name="description" content="Destined Skinn mobile skincare shopping experience">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
@@ -12,36 +13,51 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="announcement">DESTINED SKINN · GEORGIA</div>
-<header class="topbar" id="top">
-<a class="brand" href="#top">DESTINED <span>SKINN</span></a>
-<nav class="desktop-nav"><a href="#shop">Shop</a><a href="#ritual">Ritual</a><a href="#story">Story</a></nav>
-<div class="top-actions"><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Links</a><button id="menuButton" class="icon-button" aria-label="Open menu"><span></span><span></span></button></div>
+<div id="app" class="app-shell">
+<header class="app-header">
+  <div><p class="micro">SKIN FIRST · RITUAL ALWAYS</p><a class="wordmark" href="#" data-route="home">DESTINED <em>SKINN</em></a></div>
+  <div class="header-actions"><button class="circle" id="searchToggle" aria-label="Search">⌕</button><button class="circle cart-button" id="cartToggle" aria-label="Cart">Bag <b id="cartCount">0</b></button></div>
 </header>
-<aside id="menuSheet" class="menu-sheet" aria-hidden="true">
-<div class="menu-sheet-head"><span>DESTINED SKINN</span><button id="closeMenu" aria-label="Close menu">×</button></div>
-<a href="#shop">01 <strong>Shop</strong></a><a href="#ritual">02 <strong>Ritual</strong></a><a href="#story">03 <strong>Story</strong></a><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">04 <strong>All links ↗</strong></a>
-</aside>
+
 <main>
-<section class="hero">
-<div class="hero-copy"><p class="eyebrow">SKIN FIRST · RITUAL ALWAYS</p><h1>Soft skin.<br><em>On purpose.</em></h1><p class="hero-deck">A tactile body-care experience designed around the everyday ritual.</p><div class="hero-actions"><a class="button dark" href="#shop">Explore</a><a class="button ghost" href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Shop current drop ↗</a></div></div>
-<div class="hero-art"><div class="halo"></div><div class="soap-block"><span>DESTINED</span><strong>Skinn</strong><small>BODY CARE</small></div><div class="badge">MADE TO<br><strong>FEEL GOOD</strong></div></div>
+<section class="view active" data-view="home">
+  <div class="hero-card">
+    <div class="hero-copy"><p class="micro">DESTINED SKINN · GEORGIA</p><h1>Soft skin.<br><em>On purpose.</em></h1><p>Turn everyday body care into a ritual worth keeping.</p><button class="pill primary" data-route="shop">Shop the ritual</button></div>
+    <div class="hero-visual"><div class="orb"></div><div class="soap"><span>DESTINED</span><strong>Skinn</strong><small>BODY CARE</small></div></div>
+  </div>
+  <div class="quick-row"><button data-route="shop" data-filter="all">All</button><button data-route="shop" data-filter="soap">Soap</button><button data-route="ritual">Ritual</button><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Live links ↗</a></div>
+  <section class="home-section"><div class="section-title"><div><p class="micro">THE DESTINED EDIT</p><h2>Made for the reset.</h2></div><button class="text-button" data-route="shop">See all</button></div><div id="featuredProducts" class="horizontal-products"></div></section>
+  <section class="editorial"><div class="editorial-art"><span>RITUAL</span></div><div><p class="micro">CLEANSING, REFRAMED</p><h2>Not a chore.<br><em>A reset.</em></h2><p>Choose. Slow down. Repeat. Destined Skinn turns cleansing into a simple behavior you can come back to.</p><button class="pill" data-route="ritual">Build your ritual</button></div></section>
 </section>
-<section class="ticker"><div>NATURAL-LED ✦ SMALL BATCH ✦ BODY CARE ✦ SKIN RITUALS ✦ NATURAL-LED ✦ SMALL BATCH ✦ BODY CARE ✦ SKIN RITUALS ✦</div></section>
-<section class="section" id="shop">
-<div class="section-heading"><div><p class="eyebrow">THE DESTINED EDIT</p><h2>Start with the ritual.</h2></div><p>Discover the current Destined Skinn collection without digging through a traditional link hub.</p></div>
-<div class="product-grid">
-<article class="product-card featured"><div class="visual bars"><i>D</i><i>S</i><i>KINN</i></div><p class="eyebrow">SIGNATURE</p><h3>Soap Bars</h3><p>The core product story, re-presented as an editorial shopping experience.</p><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Shop current bars ↗</a></article>
-<article class="product-card"><div class="visual orb"><i></i></div><p class="eyebrow">DISCOVER</p><h3>Current Drop</h3><p>A clean gateway to everything available from Destined Skinn right now.</p><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">See what’s live ↗</a></article>
-<article class="product-card dark-card"><div class="visual monogram">DS</div><p class="eyebrow">STAY CLOSE</p><h3>Destined Circle</h3><p>Follow updates and move from discovery to the brand’s active links in one tap.</p><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Connect ↗</a></article>
-</div>
+
+<section class="view" data-view="shop">
+  <div class="page-head"><div><p class="micro">SHOP</p><h1>The collection.</h1></div><button id="filterButton" class="pill small">Filter</button></div>
+  <div class="search-wrap" id="searchWrap"><input id="searchInput" type="search" placeholder="Search Destined Skinn" autocomplete="off"><button id="clearSearch">×</button></div>
+  <div class="chips" id="chips"><button class="active" data-filter="all">All</button><button data-filter="soap">Soap</button><button data-filter="body">Body care</button><button data-filter="featured">Featured</button></div>
+  <p class="inventory-note">Preview catalog shell — final names, prices, photos and checkout links should be replaced with brand-approved inventory.</p>
+  <div id="productGrid" class="catalog-grid"></div>
 </section>
-<section class="ritual section" id="ritual"><div class="ritual-art"><span>RITUAL</span></div><div class="ritual-copy"><p class="eyebrow">CLEANSING, REFRAMED</p><h2>Not a chore.<br><em>A reset.</em></h2><p>The page turns product discovery into a simple three-step behavior.</p><div class="steps"><div><b>01</b><strong>Choose</strong><p>Find your starting point.</p></div><div><b>02</b><strong>Slow down</strong><p>Make the moment intentional.</p></div><div><b>03</b><strong>Repeat</strong><p>Build the ritual.</p></div></div></div></section>
-<section class="story section" id="story"><div class="story-kicker">PINE LAKE<br>GEORGIA</div><div><p class="eyebrow">THE STORY</p><h2>Destined for<br><em>the ritual.</em></h2><p>Destined Skinn is a Georgia skincare brand with soap bars at the center of its public product story.</p><a class="button ghost" href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Meet the brand ↗</a></div><blockquote>SKIN CARE<br>THAT FEELS<br>LIKE YOU.</blockquote></section>
-<section class="cta section"><p class="eyebrow">READY WHEN YOU ARE</p><h2>Find your next<br><em>skin ritual.</em></h2><a class="button light" href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Shop Destined Skinn ↗</a></section>
+
+<section class="view" data-view="ritual">
+  <div class="ritual-hero"><p class="micro">YOUR ROUTINE</p><h1>Three steps.<br><em>One reset.</em></h1></div>
+  <div class="ritual-steps"><article><b>01</b><div><h3>Choose</h3><p>Start with the product that matches the moment.</p></div></article><article><b>02</b><div><h3>Slow down</h3><p>Lather, breathe and give the ritual more than ten rushed seconds.</p></div></article><article><b>03</b><div><h3>Repeat</h3><p>Consistency makes the ritual yours.</p></div></article></div>
+  <div class="ritual-cta"><p class="micro">READY WHEN YOU ARE</p><h2>Find your next<br><em>skin ritual.</em></h2><button class="pill light" data-route="shop">Browse products</button></div>
+</section>
+
+<section class="view" data-view="saved">
+  <div class="page-head"><div><p class="micro">SAVED</p><h1>Your shelf.</h1></div></div>
+  <div id="savedGrid" class="catalog-grid"></div>
+  <div id="savedEmpty" class="empty-state"><span>♡</span><h2>Nothing saved yet.</h2><p>Tap the heart on any product to keep it here.</p><button class="pill primary" data-route="shop">Explore the collection</button></div>
+</section>
 </main>
-<footer><a class="brand" href="#top">DESTINED <span>SKINN</span></a><p>Georgia skincare</p><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">All links ↗</a></footer>
-<nav class="mobile-tabbar"><a href="#top">⌂<small>Home</small></a><a href="#shop">◫<small>Shop</small></a><a href="#ritual">✦<small>Ritual</small></a><a href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">↗<small>Links</small></a></nav>
+
+<nav class="tabbar" aria-label="Primary"><button class="active" data-route="home"><span>⌂</span><small>Home</small></button><button data-route="shop"><span>▦</span><small>Shop</small></button><button data-route="ritual"><span>✦</span><small>Ritual</small></button><button data-route="saved"><span>♡</span><small>Saved</small></button></nav>
+</div>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="sheet" id="productSheet" aria-hidden="true"><button class="sheet-close" data-close>×</button><div id="productSheetContent"></div></aside>
+<aside class="sheet cart-sheet" id="cartSheet" aria-hidden="true"><div class="sheet-head"><div><p class="micro">YOUR BAG</p><h2>Cart</h2></div><button class="sheet-close" data-close>×</button></div><div id="cartItems"></div><div class="cart-footer"><div><span>Preview total</span><strong id="cartTotal">—</strong></div><a class="pill primary full" href="https://linktr.ee/destinedskinn" target="_blank" rel="noreferrer">Continue to live shop ↗</a><small>Final checkout stays with Destined Skinn’s live commerce links until direct product checkout URLs are confirmed.</small></div></aside>
+<div class="toast" id="toast" role="status"></div>
 <script src="app.js"></script>
 </body>
 </html>
